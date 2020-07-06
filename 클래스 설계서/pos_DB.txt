@@ -1,0 +1,41 @@
+--책 정보
+CREATE TABLE book_books(
+     bb_code varchar2(4) PRIMARY KEY,
+     bb_name VARCHAR(100) NOT NULL,   
+     bb_price NUMBER NOT NULL,   
+     bb_shop varchar2(20) NOT NULL,
+     bb_writer varchar2(20) NOT NULL,
+     bb_registdate DATE DEFAULT sysdate
+     
+);
+
+
+--회원 테이블
+CREATE TABLE book_member(
+    bm_idx NUMBER PRIMARY KEY, -- 회원 일련번호
+    bm_userid varchar2(20) NOT NULL, --아이디 --유니크 색인을 너무 많이 돌려서 퍼포먼스저하
+    bm_pwd varchar2(20) NOT NULL, -- 패스워드
+    bm_name varchar2(20) NOT NULL, -- 이름
+    bm_hp1 varchar2(4), -- 전화 첫번째칸
+    bm_hp2 varchar2(4), -- 전화 두번째칸
+    bm_hp3 varchar2(4), -- 전화 세번째 
+    bm_zipcode1 CHAR(3), -- 우편번호 첫번째 
+    bm_zipcode2 CHAR(3), -- 우편번호 두번째 
+    bm_address1 VARCHAR(200), -- 기본 주소
+    bm_address2 VARCHAR(200) -- 상세 주소
+);
+
+--관리자 테이블
+
+CREATE TABLE book_emp(
+   
+);
+
+--책 재고 관리 테이블
+
+CREATE TABLE book_info(
+	code fk로 , 위치정보, 판매가격, 재고량
+
+);
+
+

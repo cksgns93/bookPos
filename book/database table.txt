@@ -1,0 +1,39 @@
+manager
+
+create table manager(
+  mg_empno number(4) constraint mg_empno_pk primary key,
+  mg_name varchar2(10) not null,
+  mg_id varchar2(20) constraint mg_id_UQ UNIQUE,
+  mg_pwd varchar2 (20) not null,
+  mg_age number(4),
+  mg_sex varchar2(10),
+  mg_Date DATE
+);
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+book
+
+create table Book(
+  bbCode varchar2(30) primary key,
+  bbName varchar2(30) not null,
+  bbPrice number(10) not null,
+  bbWriter varchar2(30),
+  bbRegisterDate date
+);
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+책 procedure
+
+create or replace procedure sb_update(sc in stockBook.sbCode%TYPE, num in stockBook.sbCount%TYPE)
+IS
+BEGIN
+  UPDATE stockBook set sbCount=sbCount+num where sbCode=sc;
+END;
+/
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+create table stockBook(
+  sbCode varchar2(30) primary key,
+  sbCount number(10)
+);
